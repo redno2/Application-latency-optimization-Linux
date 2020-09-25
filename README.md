@@ -113,7 +113,8 @@ This is used to force the Linux VM to keep a minimum number of kilobytes free. T
 `vm.min_free_kbytes=1024000`
 
 #### IRQ Balance
-Remove isolate CPUs from irqbalance in /etc/default/irqbalance
+Remove isolate CPUs from irqbalance in `/etc/default/irqbalance`
+
 `IRQBALANCE_BANNED_CPUS=FFF000 #Convert bin to hex cpu number`
 
 #### Network
@@ -123,6 +124,8 @@ Disable the TCP selective acks option for better throughput
 There is some research available in the networking community which shows enabling SACK on high-bandwidth links can cause unnecessary CPU cycles to be spent calculating SACK values, reducing overall efficiency of TCP connections. This research implies these links are so fast, the overhead of retransmitting small amounts of data is less than the overhead of calculating the data to provide as part of a Selective Acknowledgment.Unless there is high latency or high packet loss, it is most likely better to keep SACK turned off over a high performance network.
 
 `net.ipv4.tcp_sack=0`
+
+And reboot your server.
 
 ## How to use it
 Install some packages
@@ -139,8 +142,3 @@ And to push the affinity on this PID you have to specify which CPU need to be us
 `taskset -a -cp 12-23 $PID`
 
 Or use numactl to control that it's, more performing.
-
-
-
-We set out to reduce jitter/latency on our Forex Trading applications to the max, the focus was on the operating system level as well as the JVM configuration and choice itself.
-
