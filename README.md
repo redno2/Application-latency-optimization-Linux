@@ -1,6 +1,6 @@
 # Application-latency-optimization-Linux
 
-This is the technical part from my medium article "TODO url medium"
+This is the technical part from my medium article [OS Level Latency Optimization on Forex Systems](https://medium.com/swissquote-engineering/forex-system-latency-optimization-105e51ce3d38)
 For more information about the options below, please see the references at the end of the medium article.
 
 
