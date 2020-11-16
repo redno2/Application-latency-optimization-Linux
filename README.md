@@ -9,7 +9,7 @@ For more information about the options below, please see the references at the e
 The are the resulting of technical recommendations.
 
 ### Bios
-The modification of the bios parameters was done by following the Lenovo SR-630 documentation and other online documentation. If you want go deeper please read the documentation at the references part on the medium atricle.
+BIOS parameter modifications were done by following the Lenovo SR-630 documentation and other online documentation. If you want go deeper please read the documentation in the references section on the medium atricle.
 
 ```Hyper-Threading (HT) → DISABLED 
 VT-d (Intel virtualization technologies) → DISABLED
@@ -37,7 +37,7 @@ Prevents the clock from entering in deeper C-states
 
 `processor.max_cstate=1`
 
-Disabling CPU Power Saving States
+Disable CPU Power Saving States
 
 `intel_idle.max_cstate=0`
 
@@ -132,13 +132,13 @@ Install some packages
 
 `apt install schedtool numactl util-linux numad linux-tools-$(uname -r) linux-tools-generic`
 
-This setup imply you to use a scheduler and affinity for your specific process. For that I use "chrt" and "numactl" or "taskset"
+This setup implies you will use a dedicated scheduler and affinity for your specific process. For that I use "chrt" and "numactl" or "taskset"
 Start your process get the PID and apply config on it. Below it set the SCHED_FIFO on it and it's children, and set the priority at 99 (RT).
 
 `chrt -f -a -p 99 $PID`
 
-And to push the affinity on this PID you have to specify which CPU need to be used. Like with taskset.
+To assign affinity to this PID you have to specify which CPU need to be used. Like with taskset.
 
 `taskset -a -cp 12-23 $PID`
 
-Or use numactl to control that it's, more performing.
+Or use numactl which is shown to have better performance.
