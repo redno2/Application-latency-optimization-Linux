@@ -130,7 +130,7 @@ And reboot your server.
 ## How to use it
 Install some packages
 
-`apt install schedtool numactl util-linux numad linux-tools-$(uname -r) linux-tools-generic`
+`apt install schedtool numactl util-linux linux-tools-$(uname -r) linux-tools-generic`
 
 This setup implies you will use a dedicated scheduler and affinity for your specific process. For that I use "chrt" and "numactl" or "taskset"
 Start your process get the PID and apply config on it. Below it set the SCHED_FIFO on it and it's children, and set the priority at 99 (RT).
